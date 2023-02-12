@@ -4,11 +4,20 @@
 :root{
     --bg-black-900: #f2f2fc;
     --bg-black-100: #fdf9ff;
-    --text-black-900: 6302e4d;
-    --text-black-800: #604e70;
+    --bg-black-50: #e8dfec;
+    --text-black-900: #302e4d;
+    --text-black-700: #504e70;
+}
+body.dark 
+{
+    --bg-black-900: #151515;
+    --bg-black-100: #222222;
+    --bg-black-50: #393939;
+    --text-black-900: #ffffff;
+    --text-black-700: #e9e9e9;
 }
 body{
-    margin: 0px;
+    margin: 0;
     padding: 0;
     line-height: 1.5;
     font-size: 16px;
@@ -47,17 +56,43 @@ ul{
     background: var(--bg-black-900);
     min-height: 100vh;
     display: block;
-    position: fixed;
     left: 270px;
     padding: 0 30px;
     opacity: 1;
+    position: fixed;
+    left: 270px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.section.active 
+{
+    z-index: 2;
+    opacity: 1;
+    animation: slideSection 1s ease;
+}
+.section.back-section
+{
+    z-index: 1;
+}
+
+@keyframes slideSection
+{
+    0%
+    {
+        transform: translateX(100%);
+    }
+    100%
+    {
+        transform: translateY(0%);
+    }
 }
 .hidden{
     display: none !important;
-}
-
-.main-content{
-    padding-left: 270px;
 }
 
 .padd-15{
@@ -83,10 +118,6 @@ ul{
     margin-bottom: 60px;
 }
 
-
-.about{
-    width: 100%;
-}
 .section-title h2{
     font-size: 40px;
     color: var(--text-black-900);
@@ -134,8 +165,13 @@ ul{
     border: none;
     white-space: nowrap;
     transition: all 0.3s ease;
-}.btn:hover{
+}
+.btn:hover{
     transform: scale(1.05);
+}
+
+.shadow-dark{
+    box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
 }
 .aside .logo{
     position: absolute;
@@ -189,8 +225,8 @@ ul{
     left: 300px;
     top: 20px;
     border-radius: 5px;
-    background-color: var(--bg-black-100);
     display: flex;
+    background-color: var(--bg-black-100);
     align-items: center;
     justify-content: center;
 }
@@ -203,26 +239,43 @@ ul{
     position: relative;
 }
 
+.aside .nav-toggler.open span{
+    background-color: transparent;
+}
+
 
 .aside .nav-toggler span::before{
     content: '';
     height: 2px;
     width: 18px;
-    background-color: var(--skin-solor);
+    background: var(--skin-solor);
     position: absolute;
     top: -6px;
     left: 0;
+}
+
+.aside .nav-toggler.open span::before
+{
+    transform: rotate(45deg);
+    top: 0;
 }
 
 .aside .nav-toggler span::after{
     content: '';
     height: 2px;
     width: 18px;
-    background-color: var(--skin-solor);
+    background: var(--skin-solor);
     position: absolute;
     top: 6px;
     left: 0;
 }
+
+.aside .nav-toggler.open span::after
+{
+    transform: rotate(-45deg);
+    top: 0;
+}
+
 .aside .nav{
     margin-top: 50px;
 }
@@ -269,6 +322,7 @@ ul{
 h3.hello{
     font-size: 28px;
     margin: 15px 0;
+    color: var(--skin-color);
 }
 
 h3.hello span{
@@ -426,6 +480,422 @@ h3.my-professional{
     margin-bottom: 30px;
 }
 
+.about .about-content .skills ,.skills-item .progress .progress-in{
+    left: 0;
+    top: 0;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.about .about-content .skills .skills-item .skill-percent{
+    position: absolute;
+    right: 0;
+    color: var(--text-black-900);
+    top: -40px;
+    font-weight: 400;
+    line-height: 40px;
+}
+
+.about .hours {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.about .about-content .education,
+.about .about-content .experience
+{
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-top: 30px;
+}
+
+.about .about-content h3.title{
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: var(--text-black-900);
+}
+
+.about .about-content .timeline-box
+{
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.about .about-content .timeline{
+    background-color: var(--bg-black-100);
+    padding: 30px 15px;
+    border: 1px solid var(--bg-black-50);
+    border-radius: 10px;
+    width: 100%;
+    position: relative;
+}
+
+.about .about-content .timeline .timeline-item
+{
+    position: relative;
+    padding-left: 37px;
+    padding-bottom: 50px;
+}
+
+.about .about-content .timeline .timeline-item:last-child
+{
+    padding-bottom: 0;
+
+}
+.about .about-content .timeline .timeline-item::before
+{
+    content: '';
+    width: 1px;
+    position: absolute;
+    height: 100%;
+    left: 7px;
+    top: 0;
+    background-color: var(--skin-color);
+}
+
+/* .about .about-content .timeline .circle-dot
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: var(--skin-color);
+
+} */
+
+.about .about-content .timeline .timeline-date
+{
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: var(--text-black-700);
+}
+
+.about .about-content .timeline .timeline-date .fa{
+    margin-right: 5px;
+}
+
+.about .about-content .timeline .timeline-title
+{
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+    color: var(--text-black-900);
+}
+
+.about .about-content .timeline .timeline-text
+{
+    line-height: 25px;
+    font-size: 16px;
+    text-align: justify;
+    color: var(--text-black-700);
+}
+
+/* Skill section  */
+
+.skill .container
+{
+    padding-bottom: 40px;
+    display: inline-block;
+}
+
+.skill-section .section-title
+{
+    display: block;
+}
+.skill .skill-item{
+    margin-bottom: 10px;
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+}
+
+.skill .skill-item .skill-item-inner
+{
+    background-color: var(--bg-black-100);
+    border: 1px solif var(--bg-black-50);
+    padding: 30px 15px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.skill .skill-item .skill-item-inner:hover{
+    box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+}
+
+.skill .skill-item .skill-item-inner .main-content{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.skill .skill-item .skill-item-inner:hover .icon
+{
+    transform: scale(0.9);
+}
 
 
+.skill .skill-item .skill-item-inner h4
+{
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: black;
+    font-weight: 700;
+    text-transform: capitalize;
+}
 
+.skill .skill-item .skill-item-inner p
+{
+    font-size: 16px;
+    color: var(--text-black-700);
+    line-height: 25px;
+}
+
+/* Projects Section  */
+
+.projects .container 
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    display: inline-block;
+    padding-bottom: 40px;
+}
+
+.projects .projects-heading
+{
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 40px;
+}
+
+.projects .projects-heading h2{
+    color: var(--text-black-900);
+    font-weight: 500;
+}
+
+.projects .projects-item-inner
+{
+    border: 6px solid var(--bg-black-100);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.projects .projects-item-inner .projects-img img
+{
+    width: 100%;
+    display: block;
+}
+
+/* Conatct Section Start  */
+.contact .container
+{
+    display: inline-block;
+}
+
+.contact-title
+{
+    color: var(--skin-color);
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.contact-sub-title
+{
+    color: var(--text-black-900);
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 60px;
+}
+
+.contact .contact-info-item
+{
+    flex: 0 0 25%;
+    max-width: 25%;
+    text-align: center;
+}
+
+.contact .contact-info-item .icon 
+{
+    display: inline-block;
+}
+
+.contact .contact-info-item .icon .fa 
+
+{
+    font-size: 25px;
+    color: var(--skin-color);
+}
+
+.contact .contact-info-item h4
+{
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-black-900);
+    margin: 15px 0 5px;
+}
+
+.contact .contact-info-item p
+{
+    font-size: 16px;
+    line-height: 25px;
+    color: var(--text-black-700);
+    font-weight: 400;
+}
+
+
+.contact .contact-form
+
+{
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.contact .contact-form .col-6
+{
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.contact .contact-form .col-12
+{
+    flex: 0 0 100%;
+    max-width: 100%;
+    background: red;
+}
+
+.contact .contact-form .form-item 
+{
+    margin-bottom: 30px;
+}
+
+.contact .contact-form .form-item .form-control
+{
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    background-color: var(--bg-black-100);
+    border: 1px solid var(--bg-black-50);
+    padding: 10px 25px;
+    font-size: 16px;
+    color: var(--text-black-700);
+    transition: all 0.3s ease;
+}
+
+.contact .contact-form .form-item .form-control:focus 
+{
+    box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+}
+
+.contact .contact-form .form-item textarea.form-control
+{
+    height: 140px;
+}
+
+.contact .contact-form .btn
+{
+    height: 50px;
+    padding: 0 50px;
+}
+
+.accomplishments
+{
+    margin-top: 20px;
+}
+
+.accomplishments .title{
+    font-size: 16px;
+}
+
+@media (max-width:1199px)
+{
+    .aside
+    {
+        left: -270px;
+        height: 100%;
+        background-color: white;
+    }
+    .aside.open 
+    {
+        left: 0;
+    }
+    .aside .nav-toggler{
+        display: flex;
+        left: 30px;
+    }
+    .aside .nav-toggler.open
+    {
+        left: 300px;
+    }
+    .section
+    {
+        left: 0;
+    }
+    .section.open
+    {
+        left: 270px;
+    }
+
+    .about .about-content .personal-info .info-item p span 
+    {
+        display: block;
+        margin-left: 0;
+    }
+}
+
+@media (max-width:991px)
+{
+    .contact .contact-info-item
+    .projects .projects-item,
+    .service .service-item
+    {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .home .home-info
+    {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .home .home-img
+    {
+        display: none;
+    }
+}
+
+@media (max-width:767px)
+{
+    .contact .contact-form .col-6,
+    .contact .contact-info-item,
+    .projects .projects-item,
+    .service .service-item,
+    .about .about-content .experience,
+    .about .about-content .education,
+    .about .about-content .skills,
+    .about .about-content .personal-info
+    {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+.githubstreak
+{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+}
