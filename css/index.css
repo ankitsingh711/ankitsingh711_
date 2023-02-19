@@ -11,12 +11,6 @@ body
 {
     background-color: #0f0e17;
 }
-
-
-.navbar
-{
-    position: fixed;
-}
 .navbar h2
 {
     color: #ff8906;
@@ -38,7 +32,21 @@ body
 {
     width: 100%;
     text-align: center;
+    display: flex;
+    justify-content: space-around;
     margin-top: 40px;
+    padding-bottom: 50px;
+    color: white;
+}
+
+.name>div:nth-child(2)
+{
+    width: 60%;
+}
+.name img
+{
+    width: 300px;
+    /* border-radius: 40%; */
 }
 
 .name h1
@@ -46,6 +54,12 @@ body
     color: #ff8906;
     font-weight: bold;
     font-size: 45px;
+}
+
+.name>div:nth-child(1)
+{
+    width: 35%;
+    border-radius: 50%;
 }
 
 .name span
@@ -57,7 +71,7 @@ body
 
 .name a
 {
-    font-size: 23px;
+    font-size: 30px;
     color: gray;
 }
 
@@ -82,7 +96,7 @@ body
     color: white;
     font-size: 17px;
 }
-.resume-btn a button:hover
+.resume-btn button:hover
 {
     background-color: #ff8906;
     color: white;

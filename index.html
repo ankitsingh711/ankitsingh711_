@@ -45,7 +45,7 @@
 
     <div id="head">
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar" id="nav-menu">
+      <nav class="navbar navbar-expand-lg navbar navbar-fixed-top" id="nav-menu">
         <!-- Container wrapper -->
         <div class="container-fluid">
           <!-- Toggle button -->
@@ -57,6 +57,7 @@
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
+            aria-hidden="true"
           >
             <i class="fas fa-bars"></i>
           </button>
@@ -65,7 +66,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Navbar brand -->
             <a class="navbar-brand mt-2 mt-lg-0 mx-5" href="#head">
-              <h2 id="home">Ankit Singh</h2>
+              <h2 id="home">Hello !</h2>
             </a>
             <!-- Left links -->
             
@@ -79,22 +80,22 @@
         <div class="d-flex align-items-center navbar-collapse">
             <ul class="navbar-nav me-5 mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="#home">Home</a>
+                    <a class="nav-link home text-light" href="#home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light about section" href="#about">About</a>
+                    <a class="nav-link about text-light about section" href="#about">About</a>
                 </li>
               <li class="nav-item">
-                <a class="nav-link text-light" href="#skills">Skills</a>
+                <a class="nav-link skills text-light" href="#skills">Skills</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light" href="#projects">Projects</a>
+                <a class="nav-link projects text-light" href="#projects">Projects</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light" href="#contact" id="contact">Contact</a>
+                <a class="nav-link contact text-light" href="#contact" id="contact">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light" href="#" id="resume-button-1">Resume</a>
+                <a class="nav-link resume text-light" href="#" id="resume-button-1">Resume</a>
               </li>
             </ul>
         </div>
@@ -103,17 +104,21 @@
       <!-- Navbar -->
 
       <div class="name">
-        <h1>Ankit Singh</h1>
-        <span>Backend Developer</span><br>
-        <a href="https://github.com/ankitsingh711" id="contact-github"><i class="fa fa-github"></i></a>
-        &nbsp;
-        <a href="https://www.linkedin.com/in/ankit-singh2127/" id="contact-linkedin"><i class="fa fa-linkedin"></i></a>
-      </div>
-
-      <div class="resume-btn">
-        <a href="">
+        <div>
+          <img src="https://www.linkpicture.com/q/Ankit_Professional_Phot-removebg-preview.png" alt="my_image" class="home-img">
+        </div>
+        <div>
+          <h1 id="user-detail-name">Ankit Singh</h1>
+          <span>Backend Developer</span><br>
+          <p id="user-detail-intro">An enthusiastic web developer having experience of 1500++ hours of coding and building with the HTML, CSS and various backend technologies. Problem-solving mindset  and the ability to perform well in collaboration. Looking forward to utilizing current skillset and experience to build a world-class to achieve organization goals.</p>
+          <a href="https://github.com/ankitsingh711" id="contact-github"><i class="fa fa-github"></i></a>
+          &nbsp;
+          <a href="https://www.linkedin.com/in/ankit-singh2127/" id="contact-linkedin"><i class="fa fa-linkedin"></i></a>
+          <br><br>  
+          <a href="" class="resume-btn">
             <button class="btn" id="resume-button-2">Resume</button>
-        </a>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -154,7 +159,7 @@
     <div class="about section" id="about">
       <h2>About Me</h2>
       <div>
-        <p>An enthusiastic web developer having experience of 1500++ hours of coding and building with the HTML, CSS and various backend technologies. Problem-solving mindset  and the ability to perform well in collaboration. Looking forward to utilizing current skillset and experience to build a world-class to achieve organization goals.</p>
+        <p>Hello ! My name is Ankit Singh and I am basically from a samll village in distrit Ballia whih is sitauted in the north east of UP. I have completed my intermediate in 2020. I have too much interest in building logics as my favorite subject is Mathematics and I have also interest in technology related stuffs. I want to ee myself growing in tech filed.</p>
       </div>
       <div id="about-section-info"> 
         <div>
@@ -205,6 +210,12 @@
         </div>
       </div>
       <!-- <------------------ Project Section End ------------>
+
+      <!-- <----------------- GitHub Section Start -------------->
+      <div class="github">
+
+      </div>
+      <!-- <-------------------- GitHub Section End ------------------> 
   </body>
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"
