@@ -283,6 +283,13 @@ body
     padding: 40px;
 }
 
+.github>div:nth-child(1)
+{
+    text-align: center;
+    color: #ff8906;
+    font-weight: bolder;
+}
+
 .github>div:nth-child(2)
 {
     width: 100%;
@@ -292,11 +299,13 @@ body
     margin-top: 25px;
 }
 
-.github>div:nth-child(1)
+.github>div:nth-child(2) img:nth-child(3){
+    width: 200px;
+}
+
+.github>div:nth-child(2) img:nth-child(1)
 {
-    text-align: center;
-    color: #ff8906;
-    font-weight: bolder;
+    width: 400px;
 }
 
 .contact-section
@@ -387,31 +396,4 @@ footer
     color: white;
     background-color: #0f0e17;
     padding: 7px;
-}
-
-@media (min-width:100px) and (max-width:815px)
-{
-    .name
-    {
-        display: inline-block;
-    }
-    .name>div:nth-child(1)
-    {
-        margin-left: 230px;
-    }
-
-    .name>div:nth-child(2)
-    {
-        margin-left: 150px;
-        margin-top: 20px;
-    }
-
-    #about-section-info
-    {
-        width: 100%;
-        margin-left: 10px;
-    }
-    #about-section-info>div{
-        padding: 20px 30px;
-    }
 }
