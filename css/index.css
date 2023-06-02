@@ -391,9 +391,35 @@ footer {
     margin: auto;
   }
 
+  .contact-section {
+    width: 100%;
+    margin: auto;
+  }
+
+  .contact-section > div {
+    width: 100%;
+    margin: auto;
+  }
+
   .contact-section > div:nth-child(2) {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
+    margin: auto;
+    width: 100%;
+  }
+
+  .contact-section > div:nth-child(2) > div:nth-child(2) input {
+    width: 130px;
+  }
+  .contact-section > div:nth-child(2) > div:nth-child(1) {
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    font-size: 14px;
+  }
+
+  #contact-email {
+    font-size: 12px;
   }
 
   #projects > div:nth-child(2) {
