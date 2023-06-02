@@ -388,6 +388,7 @@ footer {
 
   .name > div:nth-child(1) {
     width: 90%;
+    margin: auto;
   }
 
   .contact-section > div:nth-child(2) {
