@@ -381,6 +381,15 @@ footer {
     margin: auto;
   }
 
+  .name > div:nth-child(1) > img {
+    width: 100%;
+    border-radius: 50px;
+  }
+
+  .name > div:nth-child(1) {
+    width: 90%;
+  }
+
   .contact-section > div:nth-child(2) {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -396,12 +405,16 @@ footer {
   }
 
   #about-section-info > div {
-    width: 60%;
+    width: 100%;
     margin: auto;
     margin-top: 30px;
   }
 
   .skills > div:nth-child(2) {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills > div:nth-child(2) {
+    width: 100%;
   }
 }
