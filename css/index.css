@@ -1,10 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap");
+
 body {
   margin: 0;
   padding: 0;
-  font-family: "Abyssinica SIL", serif;
-  font-family: "EB Garamond", serif;
-  font-family: "Manrope", sans-serif;
   overflow-x: hidden;
+  font-family: "Lato", sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -360,9 +360,15 @@ footer {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .about-section-info {
+  #about-section-info {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  #about-section-info > div {
+    width: 60%;
+    margin: auto;
+    margin-top: 30px;
   }
 }
 
@@ -382,5 +388,20 @@ footer {
 
   #projects > div:nth-child(2) {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  #about-section-info {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #about-section-info > div {
+    width: 60%;
+    margin: auto;
+    margin-top: 30px;
+  }
+
+  .skills > div:nth-child(2) {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
