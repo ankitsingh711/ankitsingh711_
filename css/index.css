@@ -75,6 +75,10 @@ body {
   font-size: 45px;
 }
 
+#designation {
+  text-shadow: 1px 1px #ff8906;
+}
+
 .name span {
   color: white;
   font-size: 18px;
