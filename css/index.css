@@ -58,8 +58,8 @@ body {
 }
 
 .name > div:nth-child(1) > img {
-  width: 300px;
-  border-radius: 50px;
+  width: 70%;
+  border-radius: 1000px;
 }
 
 .name > div:nth-child(2) {
@@ -209,6 +209,7 @@ body {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   padding: 15px;
   color: black;
+  transform: scale(0.9);
 }
 
 #projects > div:nth-child(2) a {
@@ -232,6 +233,10 @@ body {
   background-color: #ff8906;
   border-radius: 50px;
   padding: 5px;
+}
+
+#projects > div:nth-child(2) > div:hover {
+  transform: scale(1);
 }
 
 .github {
