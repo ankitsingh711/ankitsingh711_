@@ -19,26 +19,21 @@ resume_btn2.addEventListener("click", (e) => {
     "https://drive.google.com/u/0/uc?id=1SrZY8hcrTTfCHNj68JYLp95Nqz0JTmOX&export=download";
 });
 
-
 const sendMessgaeFunction = () => {
-  
-  const sendDetails = 
-  {
+  const sendDetails = {
     email: document.querySelector("#email").value,
     phone_number: document.querySelector("#phone_no").value,
-    message: document.querySelector("#message").value 
-  }
+    message: document.querySelector("#message").value,
+  };
 
-  const url = "http://localhost:1000/submit-form";
+  const url = "https://ankit-portfolio-214u.onrender.com/submit-form";
 
   fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(sendDetails)
-  })
+    body: JSON.stringify(sendDetails),
+  });
+};
 
-  alert('Your mail sent, thank you for contacting.')
-
-}

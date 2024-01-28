@@ -97,6 +97,10 @@ input[type="number"]::-webkit-inner-spin-button,
   color: gray;
 }
 
+a#contact-youtube {
+  margin-left: 9px;
+}
+
 .resume-btn {
   width: 100%;
   margin: auto;
@@ -193,6 +197,9 @@ input[type="number"]::-webkit-inner-spin-button,
 
 #about-section-info > div span {
   font-weight: bolder;
+  background-color: #ff8906;
+  padding: 5px;
+  border-radius: 15px 10px;
 }
 
 #projects {
@@ -265,6 +272,10 @@ input[type="number"]::-webkit-inner-spin-button,
 
 #github-scores > div:nth-child(1) {
   text-align: center;
+}
+
+#github-scores > div {
+  margin-top: 23px;
 }
 
 .contact-section {
