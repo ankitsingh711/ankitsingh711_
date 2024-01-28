@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap"); */
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
 
 body {
   margin: 0;
@@ -6,6 +7,12 @@ body {
   overflow-x: hidden;
   font-family: "Lato", sans-serif;
 }
+
+input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -59,14 +66,14 @@ body {
 
 .name > div:nth-child(1) > img {
   width: 70%;
-  border-radius: 1000px;
+  border-radius: 8px;
 }
 
 .name > div:nth-child(2) {
   width: 60%;
 }
 .name img {
-  width: 300px;
+  width: 250px;
 }
 
 .name h1 {
@@ -182,7 +189,6 @@ body {
   background-color: white;
   color: #0f0e17;
   padding: 50px 40px;
-  border-radius: 20px;
 }
 
 #about-section-info > div span {
@@ -340,6 +346,23 @@ footer {
   padding: 7px;
 }
 
+#designation {
+  color: white
+}
+
+#designation:after {
+  content:"";
+  animation: designation 5s alternate infinite;
+}
+
+@keyframes designation {
+  0% {content: "Associate Software Engineer";}
+  25% {content: "Full Stack Web Developer";}
+  50% {content: "Blogger";}
+  75% {content: "YouTuber";}
+  100% {content: "Debugger";}
+}
+
 @media screen and (min-width: 600px) and (max-width: 1100px) {
   .name {
     display: block;
@@ -453,3 +476,5 @@ footer {
     width: 300px;
   }
 }
+
+

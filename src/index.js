@@ -4,45 +4,41 @@ const resume_btn2 = document.querySelector("#resume-button-1");
 resume_btn.addEventListener("click", (e) => {
   e.preventDefault();
   window.open(
-    "https://drive.google.com/file/d/1O02_J76ogTkuPfvMFxv9Z4omK3mtfGWW/view?usp=sharing"
+    "https://drive.google.com/file/d/1SrZY8hcrTTfCHNj68JYLp95Nqz0JTmOX/view?usp=sharing"
   );
   window.location.href =
-    "https://drive.google.com/u/0/uc?id=1O02_J76ogTkuPfvMFxv9Z4omK3mtfGWW&export=download";
+    "https://drive.google.com/u/0/uc?id=1SrZY8hcrTTfCHNj68JYLp95Nqz0JTmOX&export=download";
 });
 
 resume_btn2.addEventListener("click", (e) => {
   e.preventDefault();
   window.open(
-    "https://drive.google.com/file/d/1O02_J76ogTkuPfvMFxv9Z4omK3mtfGWW/view?usp=sharing"
+    "https://drive.google.com/file/d/1SrZY8hcrTTfCHNj68JYLp95Nqz0JTmOX/view?usp=sharing"
   );
   window.location.href =
-    "https://drive.google.com/u/0/uc?id=1O02_J76ogTkuPfvMFxv9Z4omK3mtfGWW&export=download";
+    "https://drive.google.com/u/0/uc?id=1SrZY8hcrTTfCHNj68JYLp95Nqz0JTmOX&export=download";
 });
 
-const design = document.querySelector("#designation");
 
-const skills = ["Full Stack Web Developer", "YouTuber"];
-let j = 0;
-function changeTxt() {
-  design.innerHTML = null;
-  var txt = skills[j];
-  if (j == skills.length - 1) {
-    j = 0;
-  } else {
-    j++;
+const sendMessgaeFunction = () => {
+  
+  const sendDetails = 
+  {
+    email: document.querySelector("#email").value,
+    phone_number: document.querySelector("#phone_no").value,
+    message: document.querySelector("#message").value 
   }
 
-  var i = 0;
-  var speed = 100;
+  const url = "http://localhost:1000/submit-form";
 
-  function typeWriter() {
-    if (i < txt.length) {
-      design.innerHTML += txt.charAt(i);
-      i++;
-      setTimeout(typeWriter, speed);
-    }
-  }
-  typeWriter();
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(sendDetails)
+  })
+
+  alert('Your mail sent, thank you for contacting.')
+
 }
-
-setInterval(changeTxt, 3000);

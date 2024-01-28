@@ -33,9 +33,9 @@
       crossorigin="anonymous"
     ></script>
     <link
-  rel="stylesheet"
-  href="https://cdn.rawgit.com/IonicaBizau/github-calendar/gh-pages/dist/github-calendar.css"
-/>
+      rel="stylesheet"
+      href="https://cdn.rawgit.com/IonicaBizau/github-calendar/gh-pages/dist/github-calendar.css"
+    />
   </head>
 
   <body>
@@ -62,7 +62,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Navbar brand -->
           <a class="navbar-brand mt-2 mt-lg-0 mx-5" href="#home">
-            <h2>Hello !</h2>
+            <h2>Helllo !</h2>
           </a>
           <!-- Left links -->
           <ul class="navbar-nav me-5 mb-2 mb-lg-0" id="left_nav">
@@ -99,13 +99,13 @@
 
     <div id="home">
       <div class="name">
-        <div>
-          <img src="https://www.linkpicture.com/q/photograph.jpg" alt="my_image" class="home-img">
+        <div class="img-container">
+          <img src="https://i.ibb.co/frjzScP/Ankit-Singh.jpg" alt="my_image" class="home-img">
         </div>
         <div>
           <h1 id="user-detail-name">Ankit Singh</h1>
-          <span id="designation">Full Stack Web Developer</span><br><br>
-          <p id="user-detail-intro">An enthusiastic <i>Software Engineer</i> having experience of 1500+ hours of coding and building with the HTML, CSS and various backend technologies. Problem-solving mindset  and the ability to perform well in collaboration. Looking forward to utilizing current skillset and experience to build a world-class to achieve organization goals.</p>
+          <span id="designation"></span><br><br>
+          <p id="user-detail-intro">An Associate <i>Software Engineer</i> at ZINEIQ TECHNOLOGIES PRIVATE LIMITED, currently involved in the Singapore government project SGTRADEX. Simultaneously pursuing my Master's in Computer Applications (MCA) at IGNOU. Passionate about coding and contributing to impactful projects. Let's connect and share insights on software development and technology!"🚀</p>
           <a href="https://github.com/ankitsingh711" id="contact-github" target="_blank"><i class="fa fa-github"></i></a>
           &nbsp;
           <a href="https://www.linkedin.com/in/ankit-singh2127/" id="contact-linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
@@ -271,14 +271,14 @@
           <a style="color: white; font-size: 25px;" href="https://www.linkedin.com/in/ankit-singh2127/" id="contact-linkedin" target="_blank"><i class="fa fa-linkedin"></i></a>
           </div>
           <div>
-            <form action="">
-              <label for=""><i class="fa fa-envelope"></i> Email Address</label><br>
-              <input type="email" placeholder="Enter Your Email"><br><br>
-              <label for=""><i class="fa fa-phone"></i> Phone Number</label><br>
-              <input type="number" placeholder="Enter Your Number"><br><br>
-              <label for=""><i class="fa fa-message"></i> Your Message</label><br>
-              <input type="text" id="message" placeholder="Enter Your Message"><br><br>
-              <input type="submit" value="Send Message">
+            <form action="#">
+              <label for=""><i class="fa fa-envelope"></i> Email Address </label><br>
+              <input type="email" placeholder="Enter Your Email" id="email"><br><br>
+              <label for=""><i class="fa fa-phone"></i> Phone Number </label><br>
+              <input type="number" placeholder="Enter Your Number" id="phone_no" min="10" max="10"><br><br>
+              <label for=""><i class="fa fa-message"></i> Your Message </label><br>
+              <input type="text" id="message" placeholder="Enter Your Message" ><br><br>
+              <input type="submit" onclick="sendMessgaeFunction()" value="Send Message"/>
             </form>
           </div>
         </div>
