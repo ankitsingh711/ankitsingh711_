@@ -17,7 +17,7 @@ Node.js: Employed for server-side functionality and integration with NodeMailer.
 NodeMailer: Integrated for handling email submissions from the contact form.
 
 Setup Instructions
-git clone https://github.com/your-username/your-portfolio.git
+git clone https://github.com/ankitsingh711/ankitsingh711.git
 
 Install Dependencies:
 cd your-portfolio
