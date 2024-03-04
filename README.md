@@ -1,4 +1,4 @@
-# ankitsingh711.github.io
+# Ankit Singh
 
 Title --> This is my Portfolio websites which I have created in the span of 5 days using pure JavaScript, HTML and CSS. 
 
