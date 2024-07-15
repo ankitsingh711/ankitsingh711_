@@ -2,6 +2,7 @@
   "name": "ankitsingh711_",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://ankitsingh711.github.io/ankitsingh711_",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,10 +10,16 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build" 
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.15.15",
+    "@mui/material": "^5.15.15",
+    "bootstrap": "^5.3.3",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.10.2",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
     "react-type-animation": "^3.2.0",
@@ -29,6 +36,5 @@
     "eslint-plugin-react-refresh": "^0.4.6",
     "gh-pages": "^6.1.1",
     "vite": "^5.2.0"
-  },
-  "homepage": "https://ankitsingh711.github.io/ankitsingh711_"
+  }
 }

@@ -29,7 +29,7 @@
         margin-right: 100px;
     }
 
-    button{
+    .start_btn{
         position: absolute;
         right: 365px;
         top: 6px;
@@ -42,7 +42,7 @@
         font-weight: 300;
     }
 
-    button:hover{
+    .start_btn:hover{
         background-color: black;
         height: 3.1rem;
         margin-top: 1px;
@@ -50,4 +50,12 @@
         color: white;
         transition: margin-right 5s ease-in-out;
     }
+}
+
+.small-cards_section {
+    width: 52%;
+    margin: auto;
+    padding: 0px;
+    margin-top: 130px;
+    display: flex;
 }
