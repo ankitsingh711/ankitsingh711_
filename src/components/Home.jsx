@@ -10,7 +10,7 @@ const Home = () => {
   const [isAvatarHovered, setIsAvatarHovered] = useState(false);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 px-4 sm:px-6 py-12 sm:py-0">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-radial from-background-light via-primary-50 to-background-light px-4 sm:px-6 py-12 sm:py-0">
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <ScrollAnimation direction="left">
@@ -20,10 +20,10 @@ const Home = () => {
               transition={{ duration: 0.5 }}
               className="text-center md:text-left order-2 md:order-1"
             >
-              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-4">
-                Hi, I'm <span className="text-primary">Ankit Singh</span>
+              <h1 className="text-3xl sm:text-4xl lg:text-6xl font-display font-bold bg-gradient-primary text-transparent bg-clip-text mb-4">
+                Hi, I'm <span>Ankit Singh</span>
               </h1>
-              <div className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-8 min-h-[4rem] sm:min-h-[5rem]">
+              <div className="text-lg sm:text-xl lg:text-2xl text-text-secondary mb-8 min-h-[4rem] sm:min-h-[5rem]">
                 <TypeAnimation
                   sequence={[
                     'Full Stack Developer',
@@ -47,13 +47,13 @@ const Home = () => {
               >
                 <button
                   onClick={() => navigate('/contact')}
-                  className="w-full sm:w-auto px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+                  className="w-full sm:w-auto px-8 py-3 bg-gradient-primary text-white rounded-lg hover:shadow-glow transition-all duration-300"
                 >
                   Contact Me
                 </button>
                 <button
                   onClick={() => navigate('/projects')}
-                  className="w-full sm:w-auto px-8 py-3 bg-white text-primary border border-primary rounded-lg hover:bg-gray-50 transition-colors"
+                  className="w-full sm:w-auto px-8 py-3 bg-white text-primary-600 border border-primary-300 rounded-lg hover:bg-primary-50 transition-all duration-300"
                 >
                   View Projects
                 </button>

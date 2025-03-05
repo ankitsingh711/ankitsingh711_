@@ -1,0 +1,29 @@
+name: Update Coding Statistics
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Run every 6 hours
+  workflow_dispatch:
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Fetch GitHub Statistics
+        uses: actions/github-script@v4
+        with:
+          script: |
+            const stats = await github.request('GET /users/{username}/events', {
+              username: 'ankitsingh711'
+            });
+            // Process and store stats
+            
+      - name: Update Repository
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add .
+          git commit -m "Update coding statistics"
+          git push 

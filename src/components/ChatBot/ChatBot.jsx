@@ -1,66 +1,52 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaRobot, FaTimes, FaComments } from 'react-icons/fa';
+import aiService from '../../utils/aiService';
 
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { type: 'bot', content: 'Hi! I\'m Ankit\'s assistant. How can I help you today?' }
+    { type: 'bot', content: 'Hi! I\'m Ankit\'s AI assistant. How can I help you today?' }
   ]);
   const [inputMessage, setInputMessage] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
 
-  const predefinedResponses = {
-    greetings: ['hello', 'hi', 'hey', 'howdy'],
-    about: ['about', 'who', 'what do you do'],
-    contact: ['contact', 'email', 'phone', 'reach'],
-    projects: ['projects', 'work', 'portfolio'],
-    skills: ['skills', 'technologies', 'tech stack', 'programming']
-  };
-
-  const botResponses = {
-    greetings: "Hello! I'm here to help you learn more about Ankit. What would you like to know?",
-    about: "Ankit is a Full Stack Developer with expertise in React, Node.js, and modern web technologies. He's passionate about creating efficient and user-friendly applications.",
-    contact: "You can reach Ankit at developerankit2127@gmail.com or connect with him on LinkedIn at linkedin.com/in/ankit-singh2127",
-    projects: "Ankit has worked on various projects including web applications, APIs, and mobile apps. Would you like to see his portfolio?",
-    skills: "Ankit's tech stack includes: React.js, Node.js, Express.js, MongoDB, PostgreSQL, AWS, and more. He's also experienced in UI/UX design and system architecture.",
-    default: "I'm not sure about that. Would you like to know about Ankit's projects, skills, or how to contact him?"
-  };
-
-  const handleSendMessage = (e) => {
+  const handleSendMessage = async (e) => {
     e.preventDefault();
     if (!inputMessage.trim()) return;
 
     // Add user message
     const newMessages = [...messages, { type: 'user', content: inputMessage }];
     setMessages(newMessages);
-
-    // Generate bot response
-    const response = generateResponse(inputMessage.toLowerCase());
-    setTimeout(() => {
-      setMessages([...newMessages, { type: 'bot', content: response }]);
-    }, 500);
-
     setInputMessage('');
-  };
+    setIsTyping(true);
 
-  const generateResponse = (input) => {
-    // Check each category of predefined responses
-    for (const [category, keywords] of Object.entries(predefinedResponses)) {
-      if (keywords.some(keyword => input.includes(keyword))) {
-        return botResponses[category];
-      }
+    try {
+      // Get AI response
+      const response = await aiService.generateResponse(inputMessage);
+      
+      // Simulate typing delay for more natural interaction
+      setTimeout(() => {
+        setMessages([...newMessages, { type: 'bot', content: response }]);
+        setIsTyping(false);
+      }, 500);
+    } catch (error) {
+      setMessages([...newMessages, { 
+        type: 'bot', 
+        content: "I apologize, but I'm having trouble processing that right now. Please try again." 
+      }]);
+      setIsTyping(false);
     }
-    return botResponses.default;
   };
 
   return (
     <>
       {/* Chat button */}
       <motion.button
-        className="fixed bottom-4 right-4 p-4 bg-primary text-white rounded-full shadow-lg hover:bg-primary/90 transition-colors z-50"
-        onClick={() => setIsOpen(true)}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
+        onClick={() => setIsOpen(true)}
+        className="fixed bottom-4 right-4 p-4 bg-gradient-primary text-white rounded-full shadow-lg hover:shadow-glow z-40"
       >
         <FaComments className="w-6 h-6" />
       </motion.button>
@@ -69,16 +55,16 @@ const ChatBot = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 100 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 100 }}
-            className="fixed bottom-20 right-4 w-96 max-w-[calc(100vw-2rem)] h-[500px] max-h-[calc(100vh-8rem)] bg-white rounded-lg shadow-xl overflow-hidden z-50"
+            exit={{ opacity: 0, y: 20 }}
+            className="fixed bottom-20 right-4 w-full max-w-md bg-white rounded-xl shadow-xl z-50 overflow-hidden"
           >
             {/* Header */}
-            <div className="bg-primary p-4 flex justify-between items-center">
+            <div className="bg-gradient-primary p-4 flex justify-between items-center">
               <div className="flex items-center text-white">
                 <FaRobot className="w-6 h-6 mr-2" />
-                <span className="font-medium">Chat Assistant</span>
+                <span className="font-medium">AI Assistant</span>
               </div>
               <button
                 onClick={() => setIsOpen(false)}
@@ -89,7 +75,7 @@ const ChatBot = () => {
             </div>
 
             {/* Messages */}
-            <div className="p-4 h-[calc(100%-8rem)] overflow-y-auto">
+            <div className="p-4 h-[400px] overflow-y-auto">
               {messages.map((message, index) => (
                 <motion.div
                   key={index}
@@ -100,7 +86,7 @@ const ChatBot = () => {
                   <div
                     className={`max-w-[80%] p-3 rounded-lg ${
                       message.type === 'user'
-                        ? 'bg-primary text-white rounded-br-none'
+                        ? 'bg-gradient-primary text-white rounded-br-none'
                         : 'bg-gray-100 text-gray-800 rounded-bl-none'
                     }`}
                   >
@@ -108,6 +94,25 @@ const ChatBot = () => {
                   </div>
                 </motion.div>
               ))}
+              {isTyping && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="flex justify-start"
+                >
+                  <div className="bg-gray-100 text-gray-800 rounded-lg p-3 max-w-[80%]">
+                    <motion.div
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ repeat: Infinity, duration: 1 }}
+                      className="flex gap-1"
+                    >
+                      <div className="w-2 h-2 bg-gray-400 rounded-full" />
+                      <div className="w-2 h-2 bg-gray-400 rounded-full" />
+                      <div className="w-2 h-2 bg-gray-400 rounded-full" />
+                    </motion.div>
+                  </div>
+                </motion.div>
+              )}
             </div>
 
             {/* Input */}
@@ -117,12 +122,12 @@ const ChatBot = () => {
                   type="text"
                   value={inputMessage}
                   onChange={(e) => setInputMessage(e.target.value)}
-                  placeholder="Type your message..."
-                  className="flex-1 p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  placeholder="Ask me anything..."
+                  className="flex-1 p-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 />
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+                  className="px-4 py-2 bg-gradient-primary text-white rounded-lg hover:shadow-glow transition-all duration-300"
                 >
                   Send
                 </button>

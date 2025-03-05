@@ -2,6 +2,11 @@ import { motion } from 'framer-motion';
 import { CodeBracketIcon, CommandLineIcon, CpuChipIcon } from '@heroicons/react/24/outline';
 import AnimatedAvatar from './AnimatedAvatar';
 import ScrollAnimation from './ScrollAnimation/ScrollAnimation';
+import SkillsGlobe from './3D/SkillsGlobe';
+import TestimonialCard from './Testimonials/TestimonialCard';
+import SkillCard from './Skills/SkillCard';
+import TimelineItem from './Timeline/TimelineItem';
+import ActivityDashboard from './RealTime/ActivityDashboard';
 
 const About = () => {
   const skills = [
@@ -41,6 +46,50 @@ const About = () => {
       name: "MongoDB Developer Certification",
       issuer: "MongoDB University",
       year: "2023"
+    }
+  ];
+
+  const skillCategories = [
+    {
+      title: 'Frontend Development',
+      skills: [
+        { name: 'React.js', level: 90, color: 'bg-primary' },
+        { name: 'TypeScript', level: 85, color: 'bg-primary/90' },
+        { name: 'Next.js', level: 80, color: 'bg-primary/80' }
+      ]
+    },
+    {
+      title: 'Backend Development',
+      skills: [
+        { name: 'Node.js', level: 88, color: 'bg-primary' },
+        { name: 'Express.js', level: 85, color: 'bg-primary/90' },
+        { name: 'MongoDB', level: 82, color: 'bg-primary/80' }
+      ]
+    },
+    {
+      title: 'DevOps & Tools',
+      skills: [
+        { name: 'Git', level: 90, color: 'bg-primary' },
+        { name: 'Docker', level: 75, color: 'bg-primary/90' },
+        { name: 'AWS', level: 70, color: 'bg-primary/80' }
+      ]
+    }
+  ];
+
+  const testimonials = [
+    {
+      name: "John Doe",
+      role: "Project Manager",
+      company: "Tech Corp",
+      content: "An exceptional developer who consistently delivers high-quality work. Their technical expertise and problem-solving abilities are outstanding.",
+      image: "https://randomuser.me/api/portraits/men/1.jpg"
+    },
+    {
+      name: "Jane Smith",
+      role: "Tech Lead",
+      company: "Innovation Labs",
+      content: "A talented developer with great communication skills. They're always eager to learn and contribute meaningful solutions to complex problems.",
+      image: "https://randomuser.me/api/portraits/women/1.jpg"
     }
   ];
 
@@ -93,6 +142,13 @@ const About = () => {
             </section>
           </ScrollAnimation>
 
+          {/* Real-time Activity Dashboard - Moved here */}
+          <ScrollAnimation>
+            <section className="bg-white rounded-2xl p-8 shadow-sm">
+              <ActivityDashboard />
+            </section>
+          </ScrollAnimation>
+
           {/* Core Competencies */}
           <section className="grid md:grid-cols-3 gap-6">
             {[
@@ -114,50 +170,52 @@ const About = () => {
             ))}
           </section>
 
-          {/* Skills Section */}
+          {/* Skills Section - Updated with SkillCard */}
           <ScrollAnimation direction="up">
             <section className="bg-white rounded-2xl p-8 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Technical Skills</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {skills.map((skill, index) => (
-                  <ScrollAnimation key={skill} delay={index * 0.1} direction="scale">
-                    <motion.div className="bg-gray-50 rounded-lg p-4 text-center hover:bg-gray-100 transition-colors">
-                      <span className="text-gray-700 font-medium">{skill}</span>
-                    </motion.div>
-                  </ScrollAnimation>
+              <div className="grid md:grid-cols-3 gap-6">
+                {skillCategories.map((category, index) => (
+                  <SkillCard
+                    key={index}
+                    title={category.title}
+                    skills={category.skills}
+                  />
                 ))}
               </div>
             </section>
           </ScrollAnimation>
 
-          {/* Experience Section */}
+          {/* Experience Section - Updated with TimelineItem */}
           <ScrollAnimation direction="left">
             <section className="bg-white rounded-2xl p-8 shadow-sm">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">Experience</h2>
               <div className="space-y-6">
                 {experiences.map((exp, index) => (
-                  <motion.div
+                  <TimelineItem
                     key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="border-l-4 border-primary pl-4 space-y-2"
-                  >
-                    <h3 className="text-xl font-semibold text-gray-900">{exp.title}</h3>
-                    <p className="text-primary font-medium">{exp.company}</p>
-                    <p className="text-gray-500">{exp.period}</p>
-                    <p className="text-gray-600">{exp.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </motion.div>
+                    date={exp.period}
+                    title={exp.title}
+                    company={exp.company}
+                    description={exp.description}
+                    technologies={exp.technologies}
+                    isLast={index === experiences.length - 1}
+                  />
+                ))}
+              </div>
+            </section>
+          </ScrollAnimation>
+
+          {/* Testimonials Section */}
+          <ScrollAnimation>
+            <section className="bg-white rounded-2xl p-8 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">What People Say</h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                {testimonials.map((testimonial, index) => (
+                  <TestimonialCard
+                    key={index}
+                    {...testimonial}
+                  />
                 ))}
               </div>
             </section>
@@ -196,6 +254,13 @@ const About = () => {
               </motion.section>
             </ScrollAnimation>
           </div>
+
+          {/* Skills Globe */}
+          <ScrollAnimation>
+            <div className="h-[400px] w-full mb-12">
+              <SkillsGlobe skills={skills} />
+            </div>
+          </ScrollAnimation>
         </motion.div>
       </div>
     </div>

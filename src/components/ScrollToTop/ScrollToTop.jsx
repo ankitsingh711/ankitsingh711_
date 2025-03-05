@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaArrowUp } from 'react-icons/fa';
+import { useTheme } from '../../context/ThemeContext';
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { isDarkMode } = useTheme();
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
+      if (window.pageYOffset > 200) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -29,11 +31,17 @@ const ScrollToTop = () => {
     <AnimatePresence>
       {isVisible && (
         <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.5 }}
           onClick={scrollToTop}
-          className="fixed bottom-20 right-4 p-3 bg-primary text-white rounded-full shadow-lg hover:bg-primary/90 transition-colors z-40"
+          className={`fixed left-4 bottom-20 p-3 rounded-full shadow-lg 
+            ${isDarkMode 
+              ? 'bg-primary-600 text-white hover:bg-primary-700' 
+              : 'bg-primary-500 text-white hover:bg-primary-600'
+            }
+            transition-all duration-300 z-50 hover:scale-110`}
+          aria-label="Scroll to top"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >

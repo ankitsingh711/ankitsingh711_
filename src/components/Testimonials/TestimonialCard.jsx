@@ -1,25 +1,23 @@
 import { motion } from 'framer-motion';
-import { FaQuoteLeft } from 'react-icons/fa';
 
-const TestimonialCard = ({ testimonial }) => {
+const TestimonialCard = ({ name, role, company, content, image }) => {
   return (
     <motion.div
       whileHover={{ scale: 1.02 }}
-      className="bg-white p-6 rounded-xl shadow-sm"
+      className="bg-white rounded-xl shadow-sm p-6 border border-gray-100"
     >
-      <FaQuoteLeft className="text-primary w-8 h-8 mb-4" />
-      <p className="text-gray-600 mb-4">{testimonial.content}</p>
-      <div className="flex items-center">
+      <div className="flex items-center gap-4 mb-4">
         <img
-          src={testimonial.avatar}
-          alt={testimonial.name}
-          className="w-12 h-12 rounded-full object-cover mr-4"
+          src={image}
+          alt={name}
+          className="w-12 h-12 rounded-full object-cover"
         />
         <div>
-          <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-          <p className="text-gray-600 text-sm">{testimonial.position}</p>
+          <h3 className="font-semibold text-gray-900">{name}</h3>
+          <p className="text-sm text-gray-500">{role} at {company}</p>
         </div>
       </div>
+      <p className="text-gray-600 italic">{content}</p>
     </motion.div>
   );
 };
